@@ -1,17 +1,19 @@
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "./page/Home";
 import Map from "./page/Map.jsx";
 import Artist from "./page/Artist";
+import Survey from "./page/Survey";
+import FoodOrder from "./page/FoodOrder";
 
 function App() {
-  console.log("enter app");
-
   return (
     <Routes>
-      <Route path="/" component={Home} />
-      <Route path="/Map" component={Map} />
-      <Route path="/Artist" component={Artist} />
+      <Route path="/" exact element={<Home />} />
+      <Route path="/Map" element={<Map />} />
+      <Route path="/Artist" element={<Artist />} />
+      <Route path="/Survey" element={<Survey />} />
+      <Route path="/FoodOrder" element={<FoodOrder />} />
     </Routes>
   );
 }

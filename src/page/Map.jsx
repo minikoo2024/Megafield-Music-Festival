@@ -1,12 +1,19 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import map from "../resources/map/map.jpg";
 
 const Map = () => {
+  function zoomIn() {
+    // make zoom In function here
+  }
+
+  function zoomOut() {
+    // same above
+  }
+
   return (
     <div>
       <h2>Map page</h2>
-
-      <Link to="/">link to /</Link>
+      <img src={map} className="map img" alt="logo" />
     </div>
   );
 };
