@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
+import home from "../resources/home/Home.jpg";
 
 const Home = () => {
   console.log("home page");
@@ -23,7 +24,7 @@ const Home = () => {
 
   return (
     <div>
-      <h2>Home Home Home</h2>
+      <h2>Home</h2>
       <Button variant="primary" size="lg" onClick={handleClickSurvey}>
         Survey page
       </Button>
@@ -33,6 +34,7 @@ const Home = () => {
       <Button variant="primary" size="lg" onClick={handleClickArtist}>
         Artist page
       </Button>
+      <img src={home} className="home img" alt="logo" />
     </div>
   );
 };
