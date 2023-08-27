@@ -23,20 +23,56 @@ const Home = () => {
   }
 
   return (
-    <div>
+    <div
+      style={{
+        width: "100%",
+        height: "1080px",
+        backgroundImage: `url(${home})`,
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <h2>Home</h2>
-      <Button variant="primary" size="lg" onClick={handleClickSurvey}>
-        Survey page
+      <Button
+        variant="primary"
+        size="lg"
+        type="button"
+        onClick={handleClickSurvey}
+        style={{ margin: "10px" }}
+      >
+        Survey
       </Button>
-      <Button variant="primary" size="lg" onClick={handleClickMap}>
-        Map page
+      <Button
+        variant="primary"
+        size="lg"
+        type="button"
+        onClick={handleClickMap}
+        style={{ margin: "10px" }}
+      >
+        Map
       </Button>
-      <Button variant="primary" size="lg" onClick={handleClickArtist}>
-        Artist page
+      <Button
+        variant="primary"
+        size="lg"
+        type="button"
+        onClick={handleClickArtist}
+        style={{ margin: "10px" }}
+      >
+        Artist
       </Button>
-      <img src={home} className="home img" alt="logo" />
     </div>
   );
 };
 
 export default Home;
+
+/**
+ * 1. Home Style 수정
+ * 2. Map img style option 추가
+ * 3. TimeTable -> Profile page
+ * 4. Survey page -> scorll button -> number 나오도록 수정 (component update)
+  
+command 
+git add . 
+
+
+*/

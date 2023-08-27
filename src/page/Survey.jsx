@@ -21,13 +21,18 @@ import Form from "react-bootstrap/Form";
 import { useState } from "react";
 import SlideButton from "react-slide-button";
 import Button from "react-bootstrap/Button";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
+import Slider from "@material-ui/core/Slider";
 
 function ScoreSlideButton() {
   // Please implement Score Slide Button codes
-  //  https://reactjsexample.com/custom-react-slide-button-for-both-desktop-and-mobile/
+  //https://mui.com/material-ui/react-slider/    --> reference code page
+
+  // blog page to see the explanation or adaptation of your code
+  // https://velog.io/@mokyoungg/Library-%EA%B0%80%EA%B2%A9-%EC%8A%AC%EB%9D%BC%EC%9D%B4%EB%8D%94-%EC%82%AC%EC%9A%A9material-ui#1-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0
   // check the url and follow the example codes
   const [reset, setReset] = useState(0);
+
   return (
     <>
       <div>{/* write the code below this comment line */}</div>
@@ -39,51 +44,28 @@ function ScoreSlideButton() {
         }}
         reset={reset}
       />
-      <button onClick={() => {
-        setReset(counter => counter + 1)
-      }}
+      <button
+        onClick={() => {
+          setReset((counter) => counter + 1);
+        }}
       >
         Reset
       </button>
-
     </>
   );
 }
-
-function FeedbackTextArea() {
-  // Please implement Feedback TextArea
-  // form :  https://react-bootstrap.netlify.app/docs/forms/form-text
-  // check the url and follow the example codes
-  return (
-    <>
-      <div>{/* write the code below this comment line */}</div>
-      <Form.Text id="festivalHelp" muted>
-        How can we improve the festival?
-      </Form.Text>
-      <div></div>
-      <Form.Label htmlFor="inputFeedback">Feedback: </Form.Label>
-      <Form.Control
-        type="feedback"
-        id="inputFeedback"
-        aria-describedby="festivalHelp"
-      />
-      <div></div>
-      <button onClick={sayHello}>Submit</button>
-    </>
-  );
-}
-
-function sayHello() {
-  alert('Thank you for your feedback!');
-}
-// Usage
-
 
 const Survey = () => {
-  
   const [count, setCount] = useState(0);
+  const navigate = useNavigate();
 
   console.log("Survey Page entered");
+
+  function sayHello() {
+    // alert("Thank you for your feedback!");
+    console.log("Feedback Submitted");
+    navigate("/");
+  }
 
   function handleClick() {
     setCount(count + 1);
@@ -93,8 +75,20 @@ const Survey = () => {
     <>
       <ScoreSlideButton />
 
-      <FeedbackTextArea />
-      
+      <div className="FeedbackTextArea">
+        <Form.Text id="festivalHelp" muted>
+          How can we improve the festival?
+        </Form.Text>
+        <Form.Label htmlFor="inputFeedback">Feedback: </Form.Label>
+        <Form.Control
+          type="feedback"
+          id="inputFeedback"
+          aria-describedby="festivalHelp"
+        />
+        <Button variant="primary" size="lg" type="submit" onClick={sayHello}>
+          Submit
+        </Button>
+      </div>
     </>
   );
 };
