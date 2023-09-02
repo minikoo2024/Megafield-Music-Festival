@@ -1,4 +1,5 @@
 import React from "react";
+import Iframe from 'react-iframe'
 
 function Profile() {
   // Add Artist Information on this Page
@@ -11,7 +12,16 @@ function Profile() {
 
   return (
     <>
-      <div>Profile Page</div>
+      <div>
+        <h2>Artist TimeTable</h2>
+        <Iframe url="https://www.youtube.com/watch?v=DEy_LR1nslI"
+        width="640px"
+        height="320px"
+        id=""
+        className=""
+        display="block"
+        position="relative"/>
+      </div>
     </>
   );
 }
