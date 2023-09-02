@@ -22,7 +22,14 @@ import { useState } from "react";
 import SlideButton from "react-slide-button";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router";
-import Slider from "@material-ui/core/Slider";
+//import Slider from "@material-ui/core/Slider";
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Slider from '@mui/material/Slider';
+
+function valuetext(value: number) {
+  return `${value}`;
+}
 
 function ScoreSlideButton() {
   // Please implement Score Slide Button codes
@@ -36,22 +43,23 @@ function ScoreSlideButton() {
   return (
     <>
       <div>{/* write the code below this comment line */}</div>
+    
       <h2>Survey</h2>
-      <SlideButton
-        mainText="Rate the Festival"
-        onSlideDone={function () {
-          console.log("Done!");
-        }}
-        reset={reset}
+      <h2>Rate the Festival</h2>
+
+    <Box sx={{ width: 300 }}>
+      <Slider
+        aria-label="Small steps"
+        defaultValue={0}
+        getAriaValueText={valuetext}
+        step={0.25}
+        marks
+        min={0.1}
+        max={100}
+        valueLabelDisplay="auto"
       />
-      <button
-        onClick={() => {
-          setReset((counter) => counter + 1);
-        }}
-      >
-        Reset
-      </button>
-    </>
+    </Box>
+          </>
   );
 }
 
