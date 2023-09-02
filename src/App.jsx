@@ -6,6 +6,7 @@ import Artist from "./page/Artist";
 import Survey from "./page/Survey";
 import FoodOrder from "./page/FoodOrder";
 import { PC, Mobile } from "./module/responseWebModule";
+import FoodMenu from "./page/FoodMenu";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/Artist" element={<Artist />} />
           <Route path="/Survey" element={<Survey />} />
           <Route path="/FoodOrder" element={<FoodOrder />} />
+          <Route path="/FoodMenu" element={<FoodMenu/>} />
         </Routes>
       </Mobile>
       <PC>
@@ -26,6 +28,7 @@ function App() {
           <Route path="/Artist" element={<Artist />} />
           <Route path="/Survey" element={<Survey />} />
           <Route path="/FoodOrder" element={<FoodOrder />} />
+          <Route path="/FoodMenu" element={<FoodMenu/>} />
         </Routes>
       </PC>
     </>
