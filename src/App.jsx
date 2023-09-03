@@ -5,6 +5,7 @@ import Map from "./page/Map.jsx";
 import Artist from "./page/Artist";
 import Survey from "./page/Survey";
 import FoodOrder from "./page/FoodOrder";
+import Profile from "./page/Profile";
 import { PC, Mobile } from "./module/responseWebModule";
 import FoodMenu from "./page/FoodMenu";
 
@@ -16,9 +17,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/Map" element={<Map />} />
           <Route path="/Artist" element={<Artist />} />
+          <Route path="/Artist/Profile" element={<Profile />} />
           <Route path="/Survey" element={<Survey />} />
-          <Route path="/FoodOrder" element={<FoodOrder />} />
-          <Route path="/FoodMenu" element={<FoodMenu/>} />
+          <Route path="/FoodMenu" element={<FoodMenu />} />
+          <Route path="/FoodMenu/FoodOrder" element={<FoodOrder />} />
         </Routes>
       </Mobile>
       <PC>
@@ -26,9 +28,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/Map" element={<Map />} />
           <Route path="/Artist" element={<Artist />} />
+          <Route path="/Artist/Profile" element={<Profile />} />
           <Route path="/Survey" element={<Survey />} />
-          <Route path="/FoodOrder" element={<FoodOrder />} />
-          <Route path="/FoodMenu" element={<FoodMenu/>} />
+          <Route path="/FoodMenu" element={<FoodMenu />} />
+          <Route path="/FoodMenu/FoodOrder" element={<FoodOrder />} />
         </Routes>
       </PC>
     </>
