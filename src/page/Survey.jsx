@@ -80,6 +80,7 @@ const Survey = () => {
 
   return (
     <>
+      
       <ScoreSlideButton />
 
       <div className="FeedbackTextArea">
@@ -99,5 +100,7 @@ const Survey = () => {
     </>
   );
 };
+
+
 
 export default Survey;

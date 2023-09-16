@@ -22,11 +22,6 @@ const Home = () => {
     navigate("./Artist");
   }
 
-  function handleClickFoodMenu() {
-    console.log("home page handle click Map function called");
-    navigate("./FoodMenu");
-  }
-
   return (
     <div
       style={{
@@ -36,18 +31,13 @@ const Home = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
+      <h2>Home</h2>
       <Button
         variant="primary"
         size="lg"
         type="button"
         onClick={handleClickSurvey}
-        style={{
-          margin: "10px",
-          width: "200px",
-          height: "50px",
-          fontSize: "20pt",
-          fontFamily: "fantasy",
-        }} //style code 수정
+        style={{ margin: "10px" }}
       >
         Survey
       </Button>
@@ -56,7 +46,7 @@ const Home = () => {
         size="lg"
         type="button"
         onClick={handleClickMap}
-        style={{ margin: "10px" }} //style code 수정
+        style={{ margin: "10px" }}
       >
         Map
       </Button>
@@ -65,31 +55,29 @@ const Home = () => {
         size="lg"
         type="button"
         onClick={handleClickArtist}
-        style={{ margin: "10px" }} //style code 수정
+        style={{ margin: "10px" }}
       >
         Artist
-      </Button>
-      <Button
-        variant="primary"
-        size="lg"
-        type="button"
-        onClick={handleClickFoodMenu}
-        style={{
-          margin: "10px",
-          width: "200px",
-          height: "50px",
-          fontSize: "20pt",
-          fontFamily: "fantasy",
-        }} //style code 수정
-      >
-        Food Order
       </Button>
     </div>
   );
 };
 
-export default Home;
+class TopPictures extends React.Component{
+  render(){
+    const imagestyle={
+      height: "20vh",
+      width: "20vw",
+    }
+    return(
+      <div>
+        <img src = {home} style ={imagestyle} alt="home"/>;
+      </div>
+    )
+  }
+}
 
+export default  Home;
 /**
  * 1. Home Style 수정
  * 2. Map img style option 추가
