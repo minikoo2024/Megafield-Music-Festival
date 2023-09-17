@@ -36,7 +36,6 @@ const Home = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <h2>Home</h2>
       <Button
         variant="primary"
         size="lg"
@@ -84,14 +83,3 @@ const Home = () => {
 };
 
 export default Home;
-/**
- * 1. Home Style 수정
- * 2. Map img style option 추가
- * 3. TimeTable -> Profile page
- * 4. Survey page -> scorll button -> number 나오도록 수정 (component update)
-  
-command 
-git add . 
-
-
-*/
