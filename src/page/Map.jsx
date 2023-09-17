@@ -1,5 +1,5 @@
 import React from "react";
-import map from "../resources/map/map.jpg";
+import map from "../resources/map/Map.jpg";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import Typography from "@mui/material/Typography";
 
