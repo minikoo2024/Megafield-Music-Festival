@@ -13,13 +13,15 @@ function Profile() {
   return (
     <>
       <div>
-       <table>
-        <img src={Boramiyu} className="boramiyu" alt="logo"/>
-       </table>
-       <h2>Boramiyu</h2>
-       <text>
-        {Boramiyu is a South Korean singer and YouTuber under Shofar Entertainment. She debuted on November 21, 2018 with her first single "I Wanna Hate You"}
-       </text>
+        <table>
+          <img src={Boramiyu} className="boramiyu" alt="logo" />
+        </table>
+        <h2>Boramiyu</h2>
+        <text>
+          Boramiyu is a South Korean singer and YouTuber under Shofar
+          Entertainment. She debuted on November 21, 2018 with her first single
+          "I Wanna Hate You"
+        </text>
       </div>
     </>
   );

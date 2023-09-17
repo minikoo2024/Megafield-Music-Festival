@@ -1,22 +1,3 @@
-// import { useState } from 'react';
-
-// export default function Counter() {
-//   const [count, setCount] = useState(0);
-
-//   function handleClick() {
-//     setCount(count + 1);
-//   }
-
-//   return (
-//     <>
-//     <div> {count} </div>
-//     <button onClick={handleClick}>
-//       You pressed me times
-//     </button>
-//    </>
-//   );
-// }
-
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
 import SlideButton from "react-slide-button";
@@ -31,13 +12,6 @@ function showScore(value) {
 }
 
 function ScoreSlideButton() {
-  // Please implement Score Slide Button codes
-  //https://mui.com/material-ui/react-slider/    --> reference code page
-
-  // blog page to see the explanation or adaptation of your code
-  // https://velog.io/@mokyoungg/Library-%EA%B0%80%EA%B2%A9-%EC%8A%AC%EB%9D%BC%EC%9D%B4%EB%8D%94-%EC%82%AC%EC%9A%A9material-ui#1-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0
-  // check the url and follow the example codes
-
   const [score, setScore] = useState(0); // to show the number of slide bar
 
   function handleChange(event, newValue) {
@@ -80,7 +54,6 @@ const Survey = () => {
 
   return (
     <>
-      
       <ScoreSlideButton />
 
       <div className="FeedbackTextArea">
@@ -100,7 +73,5 @@ const Survey = () => {
     </>
   );
 };
-
-
 
 export default Survey;
