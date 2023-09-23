@@ -41,7 +41,6 @@ const TopPictures = () => {
   const imageStyle = {
     height: "20vh",
     width: "20vw",
-    align: "center",
   };
   return (
     <div>
@@ -52,9 +51,10 @@ const TopPictures = () => {
 
 const Artist = () => {
   const navigate = useNavigate();
-  // if you can make festival Timetable followed by this https://mui.com/material-ui/react-table/
-  // then don't put the image below the <h2></h2> tag, instead implement the timetable, and add onClickEvent on each row
-  // You also can set the style (color, font, width, height size, etc) like the Timetable image.
+
+  // 1. return button
+  // 2. row name 2 click event add
+
   function moveToProfile() {
     console.log("move to profile page function called");
     navigate("./Profile");
@@ -87,7 +87,7 @@ const Artist = () => {
           </TableHead>
           <TableBody>
             {rows1.map((row) => (
-              <TableRow key={row.name} sx={{}}>
+              <TableRow key={row.name1} sx={{}}>
                 <TableCell
                   component="th"
                   scope="row"
