@@ -7,6 +7,18 @@ const Home = () => {
   console.log("home page");
   const navigate = useNavigate();
 
+  const TopPictures = () => {
+    const imageStyle = {
+      height: "20vh",
+      width: "20vw",
+    };
+    return (
+      <div>
+        <img src={home} style={imageStyle} alt="home" />;
+      </div>
+    );
+  };
+
   function handleClickSurvey() {
     console.log("home page handle click Survey function called");
     navigate("./Survey");
@@ -32,10 +44,11 @@ const Home = () => {
       style={{
         width: "100%",
         height: "1080px",
-        backgroundImage: `url(${home})`,
+        backgroundImage: `url(${home})`, // delete image
         backgroundRepeat: "no-repeat",
       }}
     >
+      {/*  add Home image */}
       <Button
         variant="primary"
         size="lg"

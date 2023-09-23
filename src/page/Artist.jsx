@@ -37,18 +37,6 @@ const rows1 = [
   createData("HoooW", "20:00-21:00", "Nell", "20:00-21:00"),
 ];
 
-const TopPictures = () => {
-  const imageStyle = {
-    height: "20vh",
-    width: "20vw",
-  };
-  return (
-    <div>
-      <img src={home} style={imageStyle} alt="home" />;
-    </div>
-  );
-};
-
 const Artist = () => {
   const navigate = useNavigate();
 
@@ -68,7 +56,6 @@ const Artist = () => {
         alignContent: "center",
       }}
     >
-      <TopPictures />
       <Typography variant="h1" align="center" gutterBottom>
         Music Festival
       </Typography>
