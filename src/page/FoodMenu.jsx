@@ -1,105 +1,38 @@
-import ListGroup from "react-bootstrap/ListGroup";
 import { useNavigate } from "react-router-dom";
-import AmericanFood from "../resources/food order/American Food.jpg";
-import BunsikFood from "../resources/food order/Bunsik.jpg";
-import GimbapFood from "../resources/food order/Gimbap.png";
-import * as React from 'react';
-import ListSubheader from '@mui/material/ListSubheader';
-import List from '@mui/material/List';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import Collapse from '@mui/material/Collapse';
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import ExpandMore from '@mui/icons-material/ExpandMore';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import Avatar from '@mui/material/Avatar';
-import { Button } from "@mui/material";
+import { useState } from "react";
+//import * as Mui from "@mui/material";
+import {Box, ListItemButton, List, ListItem, ListItemAvatar, ListItemText, Avatar, Button} from "@mui/material";
+import americanFood1 from "../resources/foodMenu/americanFood1.jpg";
+import koreanFood1 from "../resources/foodMenu/koreanFood1.jpg";
 
 
 
 //https://mui.com/material-ui/react-list/#simple-list
-export default function NestedList() {
-  const [open, setOpen] = React.useState(true);
-  const navigate = useNavigate();
-  const handleClick = () => {
-    setOpen(!open);
-  };
-  function returnHome() {
-    console.log("go back to home page");
-    navigate("../"); // -> ./Map
-  
-    // ./Profile     ./Artist/Profile
-  }
 
-  return (
-    
-    <List
-      sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
-      component="nav"
-      aria-labelledby="nested-list-subheader"
-      subheader={
-        <ListSubheader component="div" id="nested-list-subheader">
-          Nested List Items
-        </ListSubheader>
-      }
-    >
-      <Button onClick={returnHome}>Return Home</Button>
-      <ListItemButton>
-        <ListItemAvatar>
-          <Avatar alt="American" src={AmericanFood}/>
-        </ListItemAvatar>
-        <ListItemText primary="American" />
-      </ListItemButton>
-     
-      <ListItemButton onClick={handleClick}>
-        <ListItemAvatar>
-          <Avatar alt="Bunsik" src={BunsikFood}/>
-        </ListItemAvatar>
-        <ListItemText primary="Bunsik" />
-        {open ? <ExpandLess /> : <ExpandMore />}
-      </ListItemButton>
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 4 }}>
-            <ListItemIcon>
-            <ListItemAvatar>
-              <Avatar alt="Gimbap" src={GimbapFood}/>
-             </ListItemAvatar>
-            </ListItemIcon>
-            <ListItemText primary="Gimbap" />
-          </ListItemButton>
-        </List>
-      </Collapse>
-    </List>
-    
-  );
-  
-  
-}
-
+let foodMenuList = [ {country: "usa", image: americanFood1}, {country: "korea", image: koreanFood1}, {country: "japan", image: koreanFood1}];
 
 // Add more Food list
-const foodList = [
-  { menu: "pizza", price: 5000, img: AmericanFood },
-  { menu: "hotdog", price: 3000 },
+let americanFoodList = [
+  { menu: "Hamburger", src: "" },
 ];
 
-function handleClickFoodMenu() {
-  // implement click function to move to Food Order Page
-  // When click the list of Food Menu
-  // use onClick event
-}
+let koreanFoodList = [
+  // first data
+  { menu: "Hotdog", price: 3000, src: "" },   // index : 0 
+  // 2nd data
+  { menu: "Tteokbokki", price: 4000, src: "" }, // index : 1
+  // 3rd data
+  { menu: "Gimbap", price:3500, src: "" }, // index: 2
+];
 
 function importFoodMenuImage() {
-  /*
-  <ListItemAvatar>
-                <Avatar
-                  alt={`Avatar n°${value + 1}`}
-                  src={`/static/images/avatar/${value + 1}.jpg`}
-                />
-              </ListItemAvatar>
-  */
+
+  koreanFoodList.map((food, index) => {  // food = koreanFoodList's each data 
+    console.log("food list update source", index);  
+    food.src = `../resources/foodMenu/koreanFood${index + 1}.jpg`
+
+    console.log("food list update source", food.src);
+  });
 }
 
 function FoodMenu() {
@@ -107,17 +40,73 @@ function FoodMenu() {
   // Food list with image
   // resource import
 
+  const [open, setOpen] = useState(true);
+  const navigate = useNavigate();
+
+  function returnHome() {
+    console.log("go back to home page");
+    navigate("../");
+  }
+
+  function handleClickFoodMenu() {
+    // implement click function to move to Food Order Page
+    // When click the list of Food Menu
+    // use onClick event
+    console.log("@@@ go to Order page @@@");
+    navigate("./FoodOrder");
+  }
+
   // 1. Food Menu Title
   // 2. Return button
   // 3. show Food menu list
+  importFoodMenuImage();
 
   return (
     <>
-      {foodList.map(function (data) {
-        return <div>Menu: {data.menu}, price: data.price</div>;
-      })}
+    <Button onClick={returnHome}>Return</Button>
+
+      {
+        foodMenuList.map((data)=> {
+          return(
+            <List>
+              <ListItem>
+              
+                <img src={data.image} style={{width: "60vw", height: "80vh", zIndex: -1, align: "center"}} alt={data.country} onClick={handleClickFoodMenu} />
+                <h2 style={{zIndex: 10, align: "center", position: "absolute", left: 100 }}>{data.country}</h2>
+              </ListItem>
+            </List>
+          )
+        })
+      }
+
+      <Box sx={{ width: "100%", maxWidth: 600, bgcolor: "background.paper" }}>
+        <nav aria-label="Food Menu List">
+          <List>
+          {
+            koreanFoodList.map((food) => {
+              return(
+                <ListItem disablePadding>
+                  <ListItemButton>
+                  {/*
+                    <ListItemIcon>
+                      <InboxIcon />
+                      <img src={food.src} style={{width: 40}} alt={food.menu} />
+                      </ListItemIcon>                  
+                   */}
+                    <ListItemAvatar>
+                      <Avatar alt={food.menu} src={food.src} />
+                    </ListItemAvatar>
+                    <ListItemText primary={food.menu} />
+                  </ListItemButton>
+                </ListItem>
+              )
+            })
+          }  
+          </List>
+        </nav>
+      </Box>
     </>
   );
 }
 
-//export default FoodMenu;
+export default FoodMenu;

@@ -39,22 +39,25 @@ const Home = () => {
     navigate("./FoodMenu");
   }
 
+
+  // 1. delete background home image, use image component  
+  // 2. use zIndex -->   
+
   return (
     <div
       style={{
         width: "100%",
-        height: "1080px",
-        backgroundImage: `url(${home})`, // delete image
-        backgroundRepeat: "no-repeat",
+        height: "100%",
       }}
     >
       {/*  add Home image */}
+      <img src={home} alt="HOME" style={{ width: "90vw", height: "120vh", zIndex: -1, top: 0}}></img>
       <Button
         variant="primary"
         size="lg"
         type="button"
         onClick={handleClickSurvey}
-        style={{ margin: "10px" }}
+        style={{ margin: "10px", zIndex: 10, position: "absolute", left: 30 }}
       >
         Survey
       </Button>

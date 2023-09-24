@@ -11,10 +11,9 @@ const Map = () => {
   function returnHome() {
     console.log("go back to home page");
     navigate("../"); // -> ./Map
-
-    // ./Profile     ./Artist/Profile
   }
 
+// position, align, top, left --> can control the component position
   const imageStyle = {
     height: "100vh",
     width: "100vw",
