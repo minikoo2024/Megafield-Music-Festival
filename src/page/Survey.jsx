@@ -53,9 +53,16 @@ const Survey = () => {
     console.log("Feedback Submitted");
     navigate("/");
   }
+  function returnHome() {
+    console.log("go back to home page");
+    navigate("../"); // -> ./Map
+
+    // ./Profile     ./Artist/Profile
+  }
 
   return (
     <>
+      <Button onClick={returnHome}>Return Home</Button>
       <ScoreSlideButton />
 
       <div className="FeedbackTextArea">
