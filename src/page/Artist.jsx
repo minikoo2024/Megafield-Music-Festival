@@ -10,6 +10,7 @@ import { styled } from "@mui/material/styles";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import home from "../resources/home/Home.jpg";
 import Typography from "@mui/material/Typography";
+import { Button } from "@mui/material";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -43,6 +44,13 @@ const Artist = () => {
   // 1. return button
   // 2. row name 2 click event add
 
+  function returnHome() {
+    console.log("go back to home page");
+    navigate("../"); // -> ./Map
+
+    // ./Profile     ./Artist/Profile
+  }
+
   function moveToProfile() {
     console.log("move to profile page function called");
     navigate("./Profile");
@@ -56,6 +64,7 @@ const Artist = () => {
         alignContent: "center",
       }}
     >
+      <Button onClick={returnHome}>Return Home</Button>
       <Typography variant="h1" align="center" gutterBottom>
         Music Festival
       </Typography>

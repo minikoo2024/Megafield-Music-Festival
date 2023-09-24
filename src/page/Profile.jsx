@@ -1,5 +1,7 @@
 import React from "react";
 import Boramiyu from "../resources/artists/Boramiyu.jpg";
+import { Button } from "@mui/material";
+import { useNavigate } from "react-router";
 
 function Profile() {
   // Add Artist Information on this Page
@@ -10,18 +12,25 @@ function Profile() {
   // If you want to show the music video on this page, you can use <Iframe></Iframe> tag
   // This tag allows you to show the contents outside such as youtube, google, naver.com things on your website.
 
+  const navigate = useNavigate();
+  function returnArtist() {
+    console.log("go back to artist page");
+    navigate("../Artist"); // -> ./Map
+
+    // ./Profile     ./Artist/Profile
+  }
+
   return (
     <>
       <div>
-        <table>
-          <img src={Boramiyu} className="boramiyu" alt="logo" />
-        </table>
-        <h2>Boramiyu</h2>
-        <text>
-          Boramiyu is a South Korean singer and YouTuber under Shofar
-          Entertainment. She debuted on November 21, 2018 with her first single
-          "I Wanna Hate You"
-        </text>
+      <Button onClick={returnArtist}>Return to Artist Timetable</Button>
+       <table>
+        <img src={Boramiyu} className="boramiyu" alt="logo"/>
+       </table>
+       <h2>Boramiyu</h2>
+       <text>
+        {"Boramiyu is a South Korean singer and YouTuber under Shofar Entertainment. She debuted on November 21, 2018 with her first single I Wanna Hate You"}
+       </text>
       </div>
     </>
   );

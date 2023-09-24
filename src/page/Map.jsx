@@ -1,5 +1,5 @@
 import React from "react";
-import map from "../resources/map/map.jpg";
+import map from "../resources/map/Map.jpg";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router";
@@ -22,7 +22,7 @@ const Map = () => {
 
   return (
     <div style={{ align: "center" }}>
-      <Button onClick={returnHome}>Return</Button>
+      <Button onClick={returnHome}>Return Home</Button>
       <Typography variant="h1" align="center" gutterBottom>
         Festival Map
       </Typography>
