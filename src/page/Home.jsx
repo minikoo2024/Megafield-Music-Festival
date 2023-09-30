@@ -7,18 +7,6 @@ const Home = () => {
   console.log("home page");
   const navigate = useNavigate();
 
-  const TopPictures = () => {
-    const imageStyle = {
-      height: "20vh",
-      width: "20vw",
-    };
-    return (
-      <div>
-        <img src={home} style={imageStyle} alt="home" />;
-      </div>
-    );
-  };
-
   function handleClickSurvey() {
     console.log("home page handle click Survey function called");
     navigate("./Survey");
@@ -39,10 +27,6 @@ const Home = () => {
     navigate("./FoodMenu");
   }
 
-
-  // 1. delete background home image, use image component  
-  // 2. use zIndex -->   
-
   return (
     <div
       style={{
@@ -50,7 +34,6 @@ const Home = () => {
         height: "100%",
       }}
     >
-      {/*  add Home image */}
       <img src={home} alt="HOME" style={{ width: "90vw", height: "120vh", zIndex: -1, top: 0}}></img>
       <Button
         variant="primary"
@@ -59,7 +42,7 @@ const Home = () => {
         onClick={handleClickSurvey}
         style={{ margin: "10px", zIndex: 10, position: "absolute", left: 30 }}
       >
-        Survey
+        Survey  
       </Button>
       <Button
         variant="primary"
