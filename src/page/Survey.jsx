@@ -1,86 +1,108 @@
-import Form from "react-bootstrap/Form";
-import { useState } from "react";
-import SlideButton from "react-slide-button";
-import Button from "react-bootstrap/Button";
-import { useNavigate } from "react-router";
-import * as React from "react";
-import Box from "@mui/material/Box";
-import Slider from "@mui/material/Slider";
-
-// Return button
+import Form from 'react-bootstrap/Form'
+import { useState } from 'react'
+import { useNavigate } from 'react-router'
+import * as React from 'react'
+import '../style/content.css'
+import {
+  Box,
+  Button,
+  Slider,
+  TextField,
+  Typography,
+  Stack,
+} from '@mui/material'
+import SendIcon from '@mui/icons-material/Send'
 
 function showScore(value) {
-  return `${value}`;
+  return `${value}`
 }
 
 function ScoreSlideButton() {
-  const [score, setScore] = useState(0); // to show the number of slide bar
+  const [score, setScore] = useState(0) // to show the number of slide bar
 
   function handleChange(event, newValue) {
-    console.log("score update ? ", newValue);
-    setScore(newValue);
+    console.log('score update ? ', newValue)
+    setScore(newValue)
   }
 
   return (
-    <>
-      <h2>Survey</h2>
-      <h2>Rate the Festival</h2>
-      <br />
-      <h1>{score}</h1>
-      <Box sx={{ width: 300 }}>
-        <Slider
-          defaultValue={0}
-          aria-label="Default"
-          getAriaValueText={showScore}
-          onChange={handleChange}
-          step={5}
-          marks
-          min={0}
-          max={100}
-          valueLabelDisplay="auto"
-        />
+    <div className="ScoreSlide">
+      <Typography variant="h3" align="center" gutterBottom>
+        Rate the Festival
+      </Typography>
+      <Typography variant="h2" align="center" gutterBottom>
+        {score}
+      </Typography>
+      <Box sx={{ width: '50vw', left: 150, alignSelf: 'center' }}>
+        <Stack
+          sx={{ mt: 3, mb: 3, ml: 10, mr: 10 }}
+          direction="row"
+          spacing={2}
+          alignItems="center"
+        >
+          <Slider
+            defaultValue={0}
+            aria-label="Default"
+            getAriaValueText={showScore}
+            onChange={handleChange}
+            step={5}
+            marks
+            min={0}
+            max={100}
+            valueLabelDisplay="auto"
+          />
+        </Stack>
       </Box>
-    </>
-  );
+    </div>
+  )
 }
 
 const Survey = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
-  console.log("Survey Page entered");
+  console.log('Survey Page entered')
 
   function moveToHome() {
-    console.log("Feedback Submitted");
-    navigate("/");
-  }
-  function returnHome() {
-    console.log("go back to home page");
-    navigate("../"); // -> ./Map
-
-    // ./Profile     ./Artist/Profile
+    console.log('Feedback Submitted')
+    alert('Thanks to your feedback')
+    navigate('../')
   }
 
   return (
-    <>
-      <Button onClick={returnHome}>Return Home</Button>
+    <div className="content">
       <ScoreSlideButton />
-
-      <div className="FeedbackTextArea">
-        <Form.Text id="festivalHelp" muted>
+      <Box
+        component="form"
+        sx={{
+          '& .MuiTextField-root': { m: 1, width: '70vw', align: 'center' },
+        }}
+        align="center"
+        noValidate
+        autoComplete="off"
+      >
+        <Typography variant="h3" align="center">
           How can we improve the festival?
-        </Form.Text>
-        <Form.Label htmlFor="inputFeedback">Feedback: </Form.Label>
-        <Form.Control
-          type="feedback"
-          id="inputFeedback"
-          aria-describedby="festivalHelp"
+        </Typography>
+        <TextField
+          id="feedbackText"
+          label="Please write your Feedback here"
+          multiline
+          rows={6}
+          placeholder="Please write your Feedback here"
         />
-        <Button variant="primary" size="lg" type="submit" onClick={moveToHome}>
+      </Box>
+      <Stack sx={{ pt: 4 }} direction="row" spacing={2} justifyContent="center">
+        <Button
+          variant="contained"
+          size="large"
+          endIcon={<SendIcon />}
+          onClick={moveToHome}
+        >
           Submit
         </Button>
-      </div>
-    </>
-  );
-};
+      </Stack>
+    </div>
+  )
+}
 
-export default Survey;
+export default Survey

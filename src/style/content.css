@@ -1,0 +1,41 @@
+.content{
+    width: 100vw;
+    height: calc(100vh - 12vh);
+    top: 6vh;
+    overflow-y: scroll;
+    align-items: center;
+    position: relative;
+}
+
+.imageSrc{
+    width: 20vw;
+    height: 45vh;
+    margin: 10px;
+}
+
+.listImage{
+    width: 20vw;
+    height: 45vh;
+    z-index: -1;
+    align-self: 'center';
+    margin: 5px 10px;
+    position: inherit;
+}
+
+.fullImage{
+    width: 100vw;
+    height: calc(100vh - 12vh);
+}
+
+.ScoreSlice{
+    width: 70vw;
+    height: 40vh;
+    position: relative;
+    align-items: center;
+}
+
+.FeedbackTextArea{
+    width: 70vw;
+    height: calc(100vh -55vh);
+    align-content: center;
+}

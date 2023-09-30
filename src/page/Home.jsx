@@ -1,84 +1,14 @@
-import React from "react";
-import Button from "react-bootstrap/Button";
-import { useNavigate } from "react-router-dom";
-import home from "../resources/home/Home.jpg";
+import React from 'react'
+import home from '../resources/home/Home.jpg'
+import '../style/content.css'
 
 const Home = () => {
-  console.log("home page");
-  const navigate = useNavigate();
-
-  function handleClickSurvey() {
-    console.log("home page handle click Survey function called");
-    navigate("./Survey");
-  }
-
-  function handleClickMap() {
-    console.log("home page handle click Map function called");
-    navigate("./Map");
-  }
-
-  function handleClickArtist() {
-    console.log("home page handle click Map function called");
-    navigate("./Artist");
-  }
-
-  function handleClickFoodMenu() {
-    console.log("home page handle click Map function called");
-    navigate("./FoodMenu");
-  }
-
+  console.log('home page')
   return (
-    <div
-      style={{
-        width: "100%",
-        height: "100%",
-      }}
-    >
-      <img src={home} alt="HOME" style={{ width: "90vw", height: "120vh", zIndex: -1, top: 0}}></img>
-      <Button
-        variant="primary"
-        size="lg"
-        type="button"
-        onClick={handleClickSurvey}
-        style={{ margin: "10px", zIndex: 10, position: "absolute", left: 30 }}
-      >
-        Survey  
-      </Button>
-      <Button
-        variant="primary"
-        size="lg"
-        type="button"
-        onClick={handleClickMap}
-        style={{ margin: "10px" }}
-      >
-        Map
-      </Button>
-      <Button
-        variant="primary"
-        size="lg"
-        type="button"
-        onClick={handleClickArtist}
-        style={{ margin: "10px" }}
-      >
-        Artist
-      </Button>
-      <Button
-        variant="primary"
-        size="lg"
-        type="button"
-        onClick={handleClickFoodMenu}
-        style={{
-          margin: "10px",
-          width: "200px",
-          height: "50px",
-          fontSize: "20pt",
-          fontFamily: "fantasy",
-        }} //style code 수정
-      >
-        Food Order
-      </Button>
+    <div className="content">
+      <img className="fullImage" src={home} alt="HOME"></img>
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

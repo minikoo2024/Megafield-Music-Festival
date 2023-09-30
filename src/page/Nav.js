@@ -1,21 +1,24 @@
 import { Link } from 'react-router-dom'
 import '../style/Nav.css'
-import { HomeIcon } from '@mui/icons-material'
+import { Home, Map, AccessAlarm, Fastfood, Feed } from '@mui/icons-material'
 
 function Nav() {
   return (
     <div className="navbar">
       <Link className="navbarMenu" to={'/'}>
-        <HomeIcon sx={{ mr: 2 }} />
+        <Home sx={{ mr: 3 }} />
       </Link>
       <Link className="navbarMenu" to={'/Map'}>
-        Map
+        <Map sx={{ mr: 3 }} />
       </Link>
       <Link className="navbarMenu" to={'/Artist'}>
-        Artist
+        <AccessAlarm sx={{ mr: 3 }} />
       </Link>
       <Link className="navbarMenu" to={'/FoodMenu'}>
-        FoodMenu
+        <Fastfood sx={{ mr: 3 }} />
+      </Link>
+      <Link className="navbarMenu" to={'/Survey'}>
+        <Feed sx={{ mr: 3 }} />
       </Link>
     </div>
   )

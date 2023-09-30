@@ -8,9 +8,8 @@ import TableRow from '@mui/material/TableRow'
 import Paper from '@mui/material/Paper'
 import { styled } from '@mui/material/styles'
 import TableCell, { tableCellClasses } from '@mui/material/TableCell'
-import home from '../resources/home/Home.jpg'
 import Typography from '@mui/material/Typography'
-import { Button } from '@mui/material'
+import '../style/content.css'
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -42,31 +41,22 @@ const Artist = () => {
   const navigate = useNavigate()
 
   // 2. row name 2 click event add
-
-  function returnHome() {
-    console.log('go back to home page')
-    navigate('../')
-  }
-
   function moveToProfile() {
     console.log('move to profile page function called')
     navigate('./Profile')
   }
 
   return (
-    <div
-      style={{
-        width: '100%',
-        height: '1080px',
-        alignContent: 'center',
-      }}
-    >
-      <Button onClick={returnHome}>Return Home</Button>
+    <div className="content">
       <Typography variant="h2" align="center" gutterBottom>
         Time Table
       </Typography>
       <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 600 }} size="small" aria-label="a dense table">
+        <Table
+          sx={{ minWidth: '40vw' }}
+          size="large"
+          aria-label="a dense table"
+        >
           <TableHead>
             <TableRow>
               <StyledTableCell align="left">Artist</StyledTableCell>

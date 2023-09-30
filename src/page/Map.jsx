@@ -1,41 +1,33 @@
-import React from "react";
-import map from "../resources/map/Map.jpg";
-import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
-import Typography from "@mui/material/Typography";
-import { useNavigate } from "react-router";
-import { Button } from "@mui/material";
+import React from 'react'
+import map from '../resources/map/Map.jpg'
+import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch'
+import Typography from '@mui/material/Typography'
+import '../style/content.css'
 
 const Map = () => {
-  const navigate = useNavigate();
-
-  function returnHome() {
-    console.log("go back to home page");
-    navigate("../"); // -> ./Map
+  const imageStyle = {
+    width: '100%',
+    height: '100%',
+    margin: 10,
+    top: 50,
+    align: 'center',
+    position: 'relative',
   }
 
-// position, align, top, left --> can control the component position
-  const imageStyle = {
-    height: "100vh",
-    width: "100vw",
-  };
-
   return (
-    <div style={{ align: "center" }}>
-      <Button onClick={returnHome}>Return Home</Button>
-      <Typography variant="h1" align="center" gutterBottom>
-        Festival Map
-      </Typography>
+    <div className="content">
       <TransformWrapper
         defaultScale={1}
         defaultPositionX={100}
         defaultPositionY={100}
+        custom
       >
         <TransformComponent>
-          <img src={map} style={imageStyle} className="map img" alt="logo" />
+          <img src={map} style={imageStyle} className="mapImage" alt="logo" />
         </TransformComponent>
       </TransformWrapper>
     </div>
-  );
-};
+  )
+}
 
-export default Map;
+export default Map
