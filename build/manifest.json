@@ -1,13 +1,6 @@
 {
   "short_name": "Mega Field Festival",
   "name": "Mega Field Festival App",
-  "icons": [
-    {
-      "src": "icon512.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
-  ],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
