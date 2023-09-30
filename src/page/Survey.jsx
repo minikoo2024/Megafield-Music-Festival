@@ -33,25 +33,23 @@ function ScoreSlideButton() {
       <Typography variant="h2" align="center" gutterBottom>
         {score}
       </Typography>
-      <Box sx={{ width: '50vw', left: 150, alignSelf: 'center' }}>
-        <Stack
-          sx={{ mt: 3, mb: 3, ml: 10, mr: 10 }}
-          direction="row"
-          spacing={2}
-          alignItems="center"
-        >
-          <Slider
-            defaultValue={0}
-            aria-label="Default"
-            getAriaValueText={showScore}
-            onChange={handleChange}
-            step={5}
-            marks
-            min={0}
-            max={100}
-            valueLabelDisplay="auto"
-          />
-        </Stack>
+      <Box
+        position="relative"
+        alignItems="center"
+        sx={{ width: '50vw', left: '20vw' }}
+      >
+        <Slider
+          defaultValue={0}
+          aria-label="Default"
+          alignSelf="center"
+          getAriaValueText={showScore}
+          onChange={handleChange}
+          step={5}
+          marks
+          min={0}
+          max={100}
+          valueLabelDisplay="auto"
+        />
       </Box>
     </div>
   )

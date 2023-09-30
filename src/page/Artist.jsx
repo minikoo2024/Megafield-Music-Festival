@@ -54,7 +54,7 @@ const Artist = () => {
       <TableContainer component={Paper}>
         <Table
           sx={{ minWidth: '40vw' }}
-          size="large"
+          size="medium"
           aria-label="a dense table"
         >
           <TableHead>
