@@ -1,7 +1,7 @@
 .content{
     width: 100vw;
     height: calc(100vh - 12vh);
-    top: 6vh;
+    top: 6vh;  /* header -> constant value로 변경되면 그 value로 change */
     overflow-y: scroll;
     align-items: center;
     position: relative;

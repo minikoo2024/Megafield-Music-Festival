@@ -3,6 +3,10 @@ import '../style/Nav.css'
 import { Home, Map, AccessAlarm, Fastfood, Feed } from '@mui/icons-material'
 
 function Nav() {
+  // / -> home
+  // /Map -> Map'
+  // mr margin right ml : margin left mt: margin top, mb: margin bottom
+
   return (
     <div className="navbar">
       <Link className="navbarMenu" to={'/'}>

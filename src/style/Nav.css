@@ -1,9 +1,9 @@
 .navbar{
     width: 100vw;
-    height: 6vh;
+    height: 6vh;  /* 20px 10px -- static value fixed value constant */
     background-color: blue;
     padding: 15px 0px;
-    top: calc(100vh - 6vh);
+    top: calc(100vh - 6vh); /* calc value modify  */
     position: fixed;
     text-align: center;
     z-index: 200;

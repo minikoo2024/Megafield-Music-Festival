@@ -1,6 +1,8 @@
 import { AppBar, Typography } from '@mui/material'
 
 function Header() {
+  // 1. Height -> fixed value로  수정 (10px 20px)
+
   return (
     <div className="Header">
       <AppBar

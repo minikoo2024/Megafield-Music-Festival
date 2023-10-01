@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import Typography from '@mui/material/Typography'
-import { List, ListItem } from '@mui/material'
+import { List, ListItem, Button } from '@mui/material'
 import americanFood1 from '../resources/foodMenu/americanFood1.jpg'
 import koreanFood1 from '../resources/foodMenu/koreanFood1.jpg'
 import '../style/content.css'
@@ -39,7 +39,6 @@ function FoodMenu() {
   // Food list with image
   // resource import
 
-  const [open, setOpen] = useState(true)
   const navigate = useNavigate()
 
   function handleClickFoodMenu() {
@@ -57,14 +56,10 @@ function FoodMenu() {
 
   return (
     <div className="content">
+      <Button onClick={handleClickFoodMenu}>Button</Button>
       {foodMenuList.map((data) => {
         return (
-          <List
-            justifyContent="center"
-            align="center"
-            alginItems="center"
-            style={{ left: 100 }}
-          >
+          <List justifyContent="center" align="center" style={{ left: 100 }}>
             <ListItem>
               <img
                 className="listImage"
