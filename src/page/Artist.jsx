@@ -40,7 +40,40 @@ const rows1 = [
 const Artist = () => {
   const navigate = useNavigate()
 
-  // 2. row name 2 click event add
+  const TableTitle = () => {
+    return (
+      <>
+        <StyledTableCell padding="normal" align="left">
+          Artist
+        </StyledTableCell>
+        <StyledTableCell padding="normal" align="right">
+          Time
+        </StyledTableCell>
+      </>
+    )
+  }
+
+  const TableArtistName = (props) => {
+    return (
+      <TableCell
+        component="th"
+        padding="normal"
+        align="left"
+        onClick={moveToProfile}
+      >
+        {props.name}
+      </TableCell>
+    )
+  }
+
+  const TableArtistTime = (props) => {
+    return (
+      <TableCell component="td" padding="normal" align="right">
+        {props.time}
+      </TableCell>
+    )
+  }
+
   function moveToProfile() {
     console.log('move to profile page function called')
     navigate('./Profile')
@@ -59,27 +92,17 @@ const Artist = () => {
         >
           <TableHead>
             <TableRow>
-              <StyledTableCell align="left">Artist</StyledTableCell>
-              <StyledTableCell align="right">Time</StyledTableCell>
-              <StyledTableCell align="left">Artist</StyledTableCell>
-              <StyledTableCell align="right">Time</StyledTableCell>
+              <TableTitle />
+              <TableTitle />
             </TableRow>
           </TableHead>
           <TableBody>
             {rows1.map((row) => (
               <TableRow key={row.name1} sx={{}}>
-                <TableCell
-                  component="th"
-                  scope="row"
-                  padding="none"
-                  align="left"
-                  onClick={moveToProfile}
-                >
-                  {row.name1}
-                </TableCell>
-                <TableCell align="right">{row.time1}</TableCell>
-                <TableCell align="left">{row.name2}</TableCell>
-                <TableCell align="right">{row.time2}</TableCell>
+                <TableArtistName name={row.name1} />
+                <TableArtistTime time={row.time1} />
+                <TableArtistName name={row.name2} />
+                <TableArtistTime time={row.time2} />
               </TableRow>
             ))}
           </TableBody>

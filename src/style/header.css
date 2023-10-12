@@ -1,0 +1,15 @@
+h3 {
+    font-size: 2rem;
+    line-height: 2rem;
+    padding-top: 0.3rem;
+    margin-bottom: 1rem;
+    color: 'white';
+    text-align: center;
+}
+
+.Header{
+    width: 100vw;
+    height: 6vh;
+    background-color: blue;
+}
+

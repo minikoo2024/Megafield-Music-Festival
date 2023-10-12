@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
 import Typography from '@mui/material/Typography'
-import { List, ListItem, Button } from '@mui/material'
+import { List, ListItem } from '@mui/material'
 import americanFood1 from '../resources/foodMenu/americanFood1.jpg'
 import koreanFood1 from '../resources/foodMenu/koreanFood1.jpg'
 import '../style/content.css'
@@ -13,24 +12,24 @@ let foodMenuList = [
 ]
 
 // Add more Food list
-let americanFoodList = [{ menu: 'Hamburger', src: '' }]
+let americanFoodList = [{ menu: 'Hamburger', image: '' }]
 
 let koreanFoodList = [
   // first data
-  { menu: 'Hotdog', price: 3000, src: '' }, // index : 0
+  { menu: 'Hotdog', price: 3000, image: '' }, // index : 0
   // 2nd data
-  { menu: 'Tteokbokki', price: 4000, src: '' }, // index : 1
+  { menu: 'Tteokbokki', price: 4000, image: '' }, // index : 1
   // 3rd data
-  { menu: 'Gimbap', price: 3500, src: '' }, // index: 2
+  { menu: 'Gimbap', price: 3500, image: '' }, // index: 2
 ]
 
 function importFoodMenuImage() {
   koreanFoodList.map((food, index) => {
     // food = koreanFoodList's each data
     console.log('food list update source', index)
-    food.src = `../resources/foodMenu/koreanFood${index + 1}.jpg`
+    food.image = require(`../resources/foodMenu/koreanFood${index + 1}.jpg`)
 
-    console.log('food list update source', food.src)
+    console.log('food list update source', food.image)
   })
 }
 
@@ -45,7 +44,7 @@ function FoodMenu() {
     // implement click function to move to Food Order Page
     // When click the list of Food Menu
     // use onClick event
-    console.log('@@@ go to Order page @@@')
+    console.log('go to Order page')
     navigate('./FoodOrder')
   }
 
@@ -56,32 +55,22 @@ function FoodMenu() {
 
   return (
     <div className="content">
-      <Button onClick={handleClickFoodMenu}>Button</Button>
-      {foodMenuList.map((data) => {
-        return (
-          <List justifyContent="center" align="center" style={{ left: 100 }}>
-            <ListItem>
-              <img
-                className="listImage"
-                src={data.image}
-                alt={data.country}
-                onClick={handleClickFoodMenu}
-              />
-              <Typography
-                variant="h4"
-                color="black"
-                align="center"
-                zIndex={10}
-                left={200}
-                position={'absolute'}
-                gutterBottom
-              >
+      <List className="listTag">
+        {foodMenuList.map((data) => {
+          return (
+            <ListItem
+              className="foodList"
+              key={data.country}
+              onClick={handleClickFoodMenu}
+            >
+              <img className="listImage" src={data.image} alt={data.country} />
+              <Typography className="listText" variant="h4" gutterBottom>
                 {data.country}
               </Typography>
             </ListItem>
-          </List>
-        )
-      })}
+          )
+        })}
+      </List>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 .content{
     width: 100vw;
-    height: calc(100vh - 12vh);
+    height: 88vh;
     top: 6vh;  /* header -> constant value로 변경되면 그 value로 change */
     overflow-y: scroll;
     align-items: center;
@@ -10,21 +10,46 @@
 .imageSrc{
     width: 20vw;
     height: 45vh;
-    margin: 10px;
+    margin: 1.5rem;
+}
+
+.listTag{
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+
+.foodList{
+    width: 85%; 
+    height: 50%; 
+    padding: 1rem;
+    align-self: center;
 }
 
 .listImage{
-    width: 20vw;
+    width: 85vw;
     height: 45vh;
     z-index: -1;
-    align-self: 'center';
-    margin: 5px 10px;
+    align-self: center;
+    margin: 1rem ;
     position: inherit;
 }
 
+h4.listText {
+    font-size: 3rem;
+    line-height: 3rem;
+    margin: 1rem;
+    left: 40vw;
+    color: black;
+    text-align: center;
+    z-index: 100;
+    position: absolute;
+
+}
+
 .fullImage{
-    width: 100vw;
-    height: calc(100vh - 12vh);
+    width: 100%;
+    height: 100%;
 }
 
 .ScoreSlice{
@@ -36,6 +61,22 @@
 
 .FeedbackTextArea{
     width: 70vw;
-    height: calc(100vh -55vh);
+    height: 45vh;
     align-content: center;
 }
+
+.mapImage{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+h2 {
+    font-size: 3rem;
+    line-height: 3rem;
+    padding-top: 0.5rem;
+    margin-bottom: 1rem;
+    color: black;
+    text-align: center;
+}
+
