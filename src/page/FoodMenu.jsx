@@ -18,9 +18,9 @@ let koreanFoodList = [
   // first data
   { menu: 'Hotdog', price: 3000, image: '' }, // index : 0
   // 2nd data
-  { menu: 'Tteokbokki', price: 4000, image: '' }, // index : 1
+  { menu: 'Tteokbokki', price: 4000, image: '../resources/foodMenu/koreanFood3.jpg' }, // index : 1
   // 3rd data
-  { menu: 'Gimbap', price: 3500, image: '' }, // index: 2
+  { menu: 'Gimbap', price: 3500, image: '../resources/foodMenu/koreanFood2.jpg' }, // index: 2
 ]
 
 function importFoodMenuImage() {
@@ -44,8 +44,8 @@ function FoodMenu() {
     // implement click function to move to Food Order Page
     // When click the list of Food Menu
     // use onClick event
-    console.log('go to Order page')
-    navigate('./FoodOrder')
+    console.log('go to Korean food page')
+    navigate('./FoodSubMenu')
   }
 
   // 1. Food Menu Title
@@ -63,7 +63,7 @@ function FoodMenu() {
               key={data.country}
               onClick={handleClickFoodMenu}
             >
-              <img className="listImage" src={data.image} alt={data.country} />
+              <img className="listImage" src={data.image}/>
               <Typography className="listText" variant="h4" gutterBottom>
                 {data.country}
               </Typography>

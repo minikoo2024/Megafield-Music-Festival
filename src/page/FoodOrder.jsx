@@ -6,6 +6,9 @@ import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
 import { Typography } from '@mui/material'
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox'
 
 // Please refer to this link below to create the Food Order Form
 //https://react-bootstrap.netlify.app/docs/forms/overview
@@ -51,19 +54,11 @@ function FoodOrder() {
 
   return (
     <>
-      {/**
-    <Form.Select
-        aria-label="Default select example"
-        onChange={handleMenuSelect}
-      >
-        <option>Menu Select</option>
-        <option value="Tteokbokki">Tteokbokki</option>
-        <option value="Kimbap">Kimbap</option>
-        <option value="Kkochi">Kkochi</option>
-      </Form.Select>
-    
-     */}
-
+    <FormGroup>
+      <FormControlLabel control={<Checkbox defaultChecked />} label="Tteokbokki" />
+      <FormControlLabel control={<Checkbox defaultChecked />} label="Tteokbokki" />
+      <FormControlLabel control={<Checkbox defaultChecked />} label="Tteokbokki" />
+    </FormGroup>
       <Box sx={{ minWidth: 120 }}>
         <FormControl fullWidth>
           <InputLabel id="demo-simple-select-label">Quantity</InputLabel>
@@ -77,11 +72,62 @@ function FoodOrder() {
             <MenuItem value={0}>One</MenuItem>
             <MenuItem value={1}>Two</MenuItem>
             <MenuItem value={2}>Three</MenuItem>
+            
           </Select>
         </FormControl>
 
         <Typography variant="h4" color="black" align="center">
-          {price}
+        {(quantity+1)*4000} ₩
+        </Typography>
+      </Box>
+      <FormGroup>
+      <FormControlLabel control={<Checkbox defaultChecked />} label="Hotdog" />
+      
+    </FormGroup>
+    <Box sx={{ minWidth: 120 }}>
+        <FormControl fullWidth>
+          <InputLabel id="demo-simple-select-label">Quantity</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={quantity}
+            label="Quantity"
+            onChange={handleChange}
+          >
+            <MenuItem value={0}>One</MenuItem>
+            <MenuItem value={1}>Two</MenuItem>
+            <MenuItem value={2}>Three</MenuItem>
+            
+          </Select>
+        </FormControl>
+
+        <Typography variant="h4" color="black" align="center">
+          {(quantity+1)*3000} ₩
+        </Typography>
+      </Box>
+      <FormGroup>
+      <FormControlLabel control={<Checkbox defaultChecked />} label="Gimbap" />
+      
+    </FormGroup>
+    <Box sx={{ minWidth: 120 }}>
+        <FormControl fullWidth>
+          <InputLabel id="demo-simple-select-label">Quantity</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={quantity}
+            label="Quantity"
+            onChange={handleChange}
+          >
+            <MenuItem value={0}>One</MenuItem>
+            <MenuItem value={1}>Two</MenuItem>
+            <MenuItem value={2}>Three</MenuItem>
+            
+          </Select>
+        </FormControl>
+
+        <Typography variant="h4" color="black" align="center">
+          {(quantity+1)*3500} ₩
         </Typography>
       </Box>
     </>
