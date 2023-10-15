@@ -24,8 +24,11 @@ function App() {
           <Route path="/Artist/Profile" element={<Profile />} />
           <Route path="/Survey" element={<Survey />} />
           <Route path="/FoodMenu" element={<FoodMenu />} />
-          <Route path="/FoodSubMenu" element={<FoodSubMenu />} />
-          <Route path="/FoodMenu/FoodOrder" element={<FoodOrder />} />
+          <Route path="/FoodMenu/FoodSubMenu" element={<FoodSubMenu />} />
+          <Route
+            path="/FoodMenu/FoodSubMenuFoodOrder"
+            element={<FoodOrder />}
+          />
         </Routes>
         <Nav />
       </Mobile>
@@ -39,8 +42,11 @@ function App() {
           <Route path="/Artist/Profile" element={<Profile />} />
           <Route path="/Survey" element={<Survey />} />
           <Route path="/FoodMenu" element={<FoodMenu />} />
-          <Route path="/FoodSubMenu" element={<FoodSubMenu />} />
-          <Route path="/FoodMenu/FoodOrder" element={<FoodOrder />} />
+          <Route path="/FoodMenu/FoodSubMenu" element={<FoodSubMenu />} />
+          <Route
+            path="/FoodMenu/FoodSubMenuFoodOrder"
+            element={<FoodOrder />}
+          />
         </Routes>
         <Nav />
       </PC>

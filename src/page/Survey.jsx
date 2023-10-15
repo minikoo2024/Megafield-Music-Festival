@@ -41,7 +41,6 @@ function ScoreSlideButton() {
         <Slider
           defaultValue={0}
           aria-label="Default"
-          alignSelf="center"
           getAriaValueText={showScore}
           onChange={handleChange}
           step={5}
