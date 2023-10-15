@@ -6,11 +6,8 @@ import { useState } from 'react'
 import FoodOrder from './FoodOrder'
 
 let foodSubMenuList = [
-  // first data
   { menu: 'Hotdog', price: 3000, image: '' },
-  // 2nd data
   { menu: 'Tteokbokki', price: 4000, image: '' },
-  // 3rd data
   { menu: 'Gimbap', price: 3500, image: '' },
 ]
 
@@ -18,20 +15,19 @@ function importFoodSubMenuImage() {
   foodSubMenuList.map((food, index) => {
     console.log('food list update source', index)
     food.image = require(`../resources/foodMenu/koreanFood${index + 1}.jpg`)
-
     console.log('food list update source', food.image)
   })
 }
 
-function FoodSubMenu(props) {
-  console.log('FoodSubMenu Page -', props.country)
+function FoodSubMenu() {
+  console.log('FoodSubMenu Page')
   const [show, setShow] = useState(false)
-  const [menu, setMenu] = useState('')
+  const [data, setData] = useState(null) // object /array type도 전달 가능
 
   function handleClickFoodOrder(clickedMenu) {
     console.log('go to Order page')
+    setData(clickedMenu)
     setShow(true)
-    setMenu(clickedMenu)
   }
 
   const handleShow = () => setShow(false)
@@ -48,7 +44,7 @@ function FoodSubMenu(props) {
               <ListItem
                 className="foodList"
                 key={data.menu}
-                onClick={() => handleClickFoodOrder(data)}
+                onClick={() => handleClickFoodOrder(data)} // data = clickedMenu
               >
                 <img className="listImage" src={data.image} alt={data.menu} />
                 <Typography className="listText" variant="h4" gutterBottom>
@@ -59,7 +55,7 @@ function FoodSubMenu(props) {
           })}
         </List>
       </div>
-      {show ? <FoodOrder menu={menu} /> : null}
+      {show ? <FoodOrder data={data} /> : null}
     </div>
   )
 }

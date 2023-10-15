@@ -11,6 +11,7 @@ import { PC, Mobile } from './module/responseWebModule'
 import FoodMenu from './page/FoodMenu'
 import Header from './page/Header'
 import Nav from './page/Nav'
+import CheckOut from './page/CheckOut'
 
 function App() {
   return (
@@ -25,10 +26,7 @@ function App() {
           <Route path="/Survey" element={<Survey />} />
           <Route path="/FoodMenu" element={<FoodMenu />} />
           <Route path="/FoodMenu/FoodSubMenu" element={<FoodSubMenu />} />
-          <Route
-            path="/FoodMenu/FoodSubMenuFoodOrder"
-            element={<FoodOrder />}
-          />
+          <Route path="FoodMenu/FoodSubMenu/CheckOut" element={<CheckOut />} />
         </Routes>
         <Nav />
       </Mobile>
@@ -43,10 +41,7 @@ function App() {
           <Route path="/Survey" element={<Survey />} />
           <Route path="/FoodMenu" element={<FoodMenu />} />
           <Route path="/FoodMenu/FoodSubMenu" element={<FoodSubMenu />} />
-          <Route
-            path="/FoodMenu/FoodSubMenuFoodOrder"
-            element={<FoodOrder />}
-          />
+          <Route path="FoodMenu/FoodSubMenu/CheckOut" element={<CheckOut />} />
         </Routes>
         <Nav />
       </PC>

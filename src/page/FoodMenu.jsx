@@ -17,7 +17,7 @@ function FoodMenu() {
 
   function handleClickFoodMenu() {
     console.log('get foodSubMenu info')
-    navigate('./FoodSubMenu', { state: { menu: 'Korea', price: 500 } })
+    navigate('./FoodSubMenu')
   }
 
   return (
@@ -28,7 +28,7 @@ function FoodMenu() {
             <ListItem
               className="foodList"
               key={data.country}
-              onClick={() => handleClickFoodMenu(data)}
+              onClick={() => handleClickFoodMenu()}
             >
               <img className="listImage" src={data.image} alt={data.country} />
               <Typography className="listText" variant="h4" gutterBottom>
