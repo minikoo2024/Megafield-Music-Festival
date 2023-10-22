@@ -52,11 +52,26 @@ function CheckOutModal(props) {
   const [open, setOpen] = useState(false)
   const navigate = useNavigate()
 
-  const handleClickModal = () => {
-    console.log('close modal popup: ', props.open)
-    setOpen(props.open)
+  const handleClickShopping = () => {
+    console.log('close modal popup: ', open)
+    setOpen(!open) /// open = true -> false , false -> true
     navigate('../../FoodMenu')
   }
+
+  const handleClickHome = () => {
+    console.log('handleClickHome popup: ', open)
+    setOpen(!open) /// open = true -> false , false -> true
+    navigate('../../../')
+  }
+
+  useEffect(() => {
+    console.log('modal open value changed')
+    if (props.open === true) {
+      setOpen(true)
+    } else {
+      setOpen(false)
+    }
+  }, [props.open])
 
   return (
     <Modal
@@ -64,20 +79,33 @@ function CheckOutModal(props) {
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
-      <Box sx={modalStyle}>
-        <Typography id="modal-modal-title" variant="h6" component="h2">
-          Order successfully submitted. Thank you!
+      <Box sx={modalStyle} align="center">
+        <Typography id="modal-modal-title" variant="h4" align="center">
+          Thank you!
         </Typography>
-        <ListItemIcon>
-          <CreditScoreIcon></CreditScoreIcon>
-        </ListItemIcon>
+        <Typography id="checkout-modal-body" variant="body1">
+          {' '}
+          Order successfully submitted.{' '}
+        </Typography>
+
         <Button
           variant="contained"
-          size="large"
+          size="small"
           align="center"
-          onClick={handleClickModal}
+          onClick={handleClickShopping}
+          sx={{ ml: 2, mt: 2 }}
         >
           Continue Shopping
+        </Button>
+
+        <Button
+          variant="contained"
+          size="small"
+          align="center"
+          onClick={handleClickHome}
+          sx={{ ml: 2, mt: 2 }}
+        >
+          Go back to Home
         </Button>
       </Box>
     </Modal>
@@ -106,13 +134,25 @@ function CheckOut(props) {
     setOrderIdx(index)
   }
 
+  // block -> page showing   none -> disappear
   return (
     <div className="content" style={{ display: props.show ? 'block' : 'none' }}>
       <CssBaseline />
       <Container maxWidth="sm">
-        <Typography variant="h1" align="center">
+        <Typography variant="h3" align="center">
           Check Out
         </Typography>
+        <Box sx={{ height: '30vh', width: '65vh' }}>
+          <img
+            src={props.img}
+            alt=""
+            style={{ width: '15vw', height: '15vh', margin: '1rem' }}
+          />
+          <Typography id="modal-modal-title" variant="h4">
+            <CreditScoreIcon sx={{ mr: 1 }} />
+            Total Payment: {props.price} won
+          </Typography>
+        </Box>
         <Box sx={{ height: '20vh', width: '65vh' }}>
           <List
             sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}

@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography'
-import { List, ListItem } from '@mui/material'
+import { List, ListItem, Box, Container, CssBaseline } from '@mui/material'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 import '../style/content.css'
 import { useState } from 'react'
@@ -35,28 +35,42 @@ function FoodSubMenu() {
   importFoodSubMenuImage()
 
   return (
-    <div className="content">
-      <div style={{ display: show ? 'none' : 'block' }}>
+    <>
+      <div className="content" style={{ display: show ? 'none' : 'block' }}>
         <ArrowBackIosIcon sx={{ mr: 3 }} onClick={handleShow} />
-        <List className="listTag">
-          {foodSubMenuList.map((data) => {
-            return (
-              <ListItem
-                className="foodList"
-                key={data.menu}
-                onClick={() => handleClickFoodOrder(data)} // data = clickedMenu
-              >
-                <img className="listImage" src={data.image} alt={data.menu} />
-                <Typography className="listText" variant="h4" gutterBottom>
-                  {data.menu}
-                </Typography>
-              </ListItem>
-            )
-          })}
-        </List>
+        <CssBaseline />
+        <Container maxWidth="sm">
+          <Box sx={{ height: '88vh', width: '60vh' }} align="center">
+            <List className="listTag">
+              {foodSubMenuList.map((data) => {
+                return (
+                  <ListItem
+                    className="foodList"
+                    key={data.menu}
+                    onClick={() => handleClickFoodOrder(data)} // data = clickedMenu
+                  >
+                    <img
+                      className="listImage"
+                      src={data.image}
+                      alt={data.menu}
+                    />
+                    <Typography
+                      className="listText"
+                      variant="h5"
+                      align="center"
+                      gutterBottom
+                    >
+                      {data.menu}
+                    </Typography>
+                  </ListItem>
+                )
+              })}
+            </List>
+          </Box>
+        </Container>
       </div>
       {show ? <FoodOrder data={data} /> : null}
-    </div>
+    </>
   )
 }
 export default FoodSubMenu

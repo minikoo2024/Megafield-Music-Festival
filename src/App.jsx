@@ -25,11 +25,11 @@ function App() {
           <Route path="/Survey" element={<Survey />} />
           <Route path="/FoodMenu" element={<FoodMenu />} />
           <Route path="/FoodMenu/FoodSubMenu" element={<FoodSubMenu />} />
-          <Route path="FoodMenu/FoodSubMenu/CheckOut" element={<CheckOut />} />
+          <Route path="/FoodMenu/FoodSubMenu/CheckOut" element={<CheckOut />} />
         </Routes>
         <Nav />
       </Mobile>
-
+      ../../../
       <PC>
         <Header />
         <Routes>
@@ -40,7 +40,7 @@ function App() {
           <Route path="/Survey" element={<Survey />} />
           <Route path="/FoodMenu" element={<FoodMenu />} />
           <Route path="/FoodMenu/FoodSubMenu" element={<FoodSubMenu />} />
-          <Route path="FoodMenu/FoodSubMenu/CheckOut" element={<CheckOut />} />
+          <Route path="/FoodMenu/FoodSubMenu/CheckOut" element={<CheckOut />} />
         </Routes>
         <Nav />
       </PC>

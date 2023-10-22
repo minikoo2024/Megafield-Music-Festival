@@ -28,8 +28,8 @@
 }
 
 .listImage{
-    width: 100vw;
-    height: 50vh;
+    width: 60%;
+    height: 100%;
     z-index: -1;
     position: relative;
 }
@@ -38,8 +38,8 @@ h4.listText {
     font-size: 3rem;
     line-height: 3rem;
     margin: 1rem;
-    left: 40vw;
-    color: black;
+    /* left: 40vw; */
+    color: white;
     text-align: center;
     z-index: 100;
     position: absolute;

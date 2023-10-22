@@ -93,7 +93,7 @@ function FoodOrder(props) {
           </Box>
         </Container>
       </div>
-      <CheckOut show={show} price={price} />
+      <CheckOut show={show} price={price} img={props.data.image} />
     </>
   )
 }
