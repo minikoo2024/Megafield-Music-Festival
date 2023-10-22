@@ -6,16 +6,20 @@ import {
   ListItemText,
   ListItemIcon,
   Button,
+  Box,
+  Modal,
+  Container,
+  CssBaseline,
+  ListSubheader,
+  Divider,
 } from '@mui/material'
 import AddCardIcon from '@mui/icons-material/AddCard'
 import CreditCardIcon from '@mui/icons-material/CreditCard'
 import { useState } from 'react'
-import Modal from '@mui/material/Modal'
-import Box from '@mui/material/Box'
-import { useEffect} from 'react'
-import {useNavigate} from 'react-router'
-import CreditScoreIcon from '@mui/icons-material/CreditScore';
-import FingerprintIcon from '@mui/icons-material/Fingerprint';
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router'
+import FingerprintIcon from '@mui/icons-material/Fingerprint'
+import CreditScoreIcon from '@mui/icons-material/CreditScore'
 
 //https://elements.envato.com/checkout-payment-app-screen-for-food-95Z3GF4
 
@@ -32,7 +36,7 @@ import FingerprintIcon from '@mui/icons-material/Fingerprint';
 //4. finger print payment -- > add finger print button below\ (optional assignment)
 // https://mui.com/material-ui/react-button/#color
 
-const style = {
+const modalStyle = {
   position: 'absolute',
   top: '50%',
   left: '50%',
@@ -44,133 +48,156 @@ const style = {
   p: 4,
 }
 
-function calculatePrice(foodPrice, quantity) {
-  console.log('foodPrice : ', foodPrice, ' food Quantity: ', quantity)
-  return foodPrice * quantity
+function CheckOutModal(props) {
+  const [open, setOpen] = useState(false)
+  const navigate = useNavigate()
+
+  const handleClickModal = () => {
+    console.log('close modal popup: ', props.open)
+    setOpen(props.open)
+    navigate('../../FoodMenu')
+  }
+
+  return (
+    <Modal
+      open={open}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+    >
+      <Box sx={modalStyle}>
+        <Typography id="modal-modal-title" variant="h6" component="h2">
+          Order successfully submitted. Thank you!
+        </Typography>
+        <ListItemIcon>
+          <CreditScoreIcon></CreditScoreIcon>
+        </ListItemIcon>
+        <Button
+          variant="contained"
+          size="large"
+          align="center"
+          onClick={handleClickModal}
+        >
+          Continue Shopping
+        </Button>
+      </Box>
+    </Modal>
+  )
 }
 
 function CheckOut(props) {
-  const [selectedIndex, setSelectedIndex] = useState(1)
+  const [selectedIndex, setSelectedIndex] = useState(0)
+  const [orderIdx, setOrderIdx] = useState(0)
   const [coupon, setCouponCode] = useState('')
-  const [open, setOpen] = useState(false);
-  const [price, setPrice] = useState(0)
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-  const navigate = useNavigate()
-  const [quantity, setQuantity] = useState(0)
+  const [open, setOpen] = useState(false)
+  const handleOpen = () => setOpen(true)
 
-  const handleChange = (event) => {
-    console.log('handle event change ', event.target.value)
-    setQuantity(event.target.value)
-  }
-
-  /*
   useEffect(() => {
-    console.log('get inside calculate the Price useEffect')
-    setPrice(calculatePrice(props.data.price, quantity))
-  }, [props.data.price, quantity])
-*/
+    console.log('coupon registering')
+    setCouponCode('coupon')
+  }, [coupon])
+
   function handleListItemClick(event, index) {
     console.log('handle Click list item')
     setSelectedIndex(index)
   }
 
-  function handleOpenModal() {
-    console.log('open modal')
-    // implements open modal function
-  }
-  const handleFoodMenu = () => {
-    navigate('/FoodMenu')
+  function orderOptionSelect(event, index) {
+    console.log('order Option Select')
+    setOrderIdx(index)
   }
 
   return (
-    <div className="content">
-      <Typography variant="h1" align="center">
-        Check Out
-      </Typography>
-      <Typography align="left">
-        Method
-      </Typography>
-      <ListItemButton
-          selected={selectedIndex === 1}
-          onClick={(event) => handleListItemClick(event, 1)}
-        >
-         <ListItemText primary="Pickup" />
-        </ListItemButton>
-        <ListItemButton
-          selected={selectedIndex === 1}
-          onClick={(event) => handleListItemClick(event, 1)}
-        >
-         <ListItemText primary="Deliver to seat" />
-        </ListItemButton>
-        <Typography align="left">
-        Payment Method
-      </Typography>
-      <List component="nav" aria-label="main mailbox folders">
-        <ListItemButton
-          selected={selectedIndex === 0}
-          onClick={(event) => handleListItemClick(event, 0)}
-        >
-          <ListItemIcon>
-            <CreditCardIcon />
-          </ListItemIcon>
-          <ListItemText primary="**** **** **** 1234" />
-        </ListItemButton>
-        <ListItemButton
-          selected={selectedIndex === 1}
-          onClick={(event) => handleListItemClick(event, 1)}
-        >
-          <ListItemIcon>
-            <AddCardIcon />
-          </ListItemIcon>
-          <ListItemText primary="Add a new Credit card" />
-        </ListItemButton>
-      </List>
-
-      <Button
-        variant="contained"
-        size="large"
-        align="center"
-        onClick={handleOpen}
-      >
-        Submit Order
-      </Button>
-      <div></div>
-      <FingerprintIcon></FingerprintIcon>
-      <div></div>
-      <Button
-        variant="contained"
-        
-        size="large"
-        align="center"
-        onClick={handleOpen}
-      >
-        Pay with Touch ID
-      </Button>
-      <Modal
-      open={open}
-      onClick={handleFoodMenu}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component ="h2">
-            Order successfully submitted. Thank you!
-          </Typography>
-          <ListItemIcon>
-            <CreditScoreIcon></CreditScoreIcon>
-          </ListItemIcon>
-          <Button
-          variant="contained"
-        
-          size="large"
-          align="center"
-          onClick={handleOpen}
+    <div className="content" style={{ display: props.show ? 'block' : 'none' }}>
+      <CssBaseline />
+      <Container maxWidth="sm">
+        <Typography variant="h1" align="center">
+          Check Out
+        </Typography>
+        <Box sx={{ height: '20vh', width: '65vh' }}>
+          <List
+            sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+            aria-labelledby="Check Out List"
+            subheader={
+              <ListSubheader component="div" id="Check Out List">
+                Choose Pick up option
+              </ListSubheader>
+            }
           >
-            Continue Shopping
+            <ListItemButton
+              sx={{ mt: 2 }}
+              selected={orderIdx === 0}
+              onClick={(event) => orderOptionSelect(event, 0)}
+            >
+              <ListItemText primary="Pickup" />
+            </ListItemButton>
+            <ListItemButton
+              sx={{ mt: 2 }}
+              selected={orderIdx === 1}
+              onClick={(event) => orderOptionSelect(event, 1)}
+            >
+              <ListItemText primary="Deliver to seat" />
+            </ListItemButton>
+          </List>
+        </Box>
+        <Divider />
+        <Box sx={{ height: '20vh', width: '65vh' }}>
+          <Typography align="left"></Typography>
+          <List
+            sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+            component="nav"
+            aria-label="payment"
+            subheader={
+              <ListSubheader component="div" id="Check Out List">
+                Payment Method
+              </ListSubheader>
+            }
+          >
+            <ListItemButton
+              sx={{ mt: 2 }}
+              selected={selectedIndex === 0}
+              onClick={(event) => handleListItemClick(event, 0)}
+            >
+              <ListItemIcon>
+                <CreditCardIcon sx={{ mr: 2 }} />
+              </ListItemIcon>
+              <ListItemText primary="**** **** **** 1234" />
+            </ListItemButton>
+            <ListItemButton
+              sx={{ mt: 2 }}
+              selected={selectedIndex === 1}
+              onClick={(event) => handleListItemClick(event, 1)}
+            >
+              <ListItemIcon>
+                <AddCardIcon sx={{ mr: 2 }} />
+              </ListItemIcon>
+              <ListItemText primary="Add a new Credit card" />
+            </ListItemButton>
+          </List>
+        </Box>
+        <Box sx={{ height: '40vh', width: '65vh', maxWidth: 280 }}>
+          <Button
+            variant="contained"
+            size="large"
+            align="center"
+            onClick={handleOpen}
+            sx={{ mr: 3, mt: 3, mb: 3 }}
+          >
+            Submit Order {props.price} won
+          </Button>
+
+          <FingerprintIcon sx={{ mr: 2 }} />
+
+          <Button
+            variant="contained"
+            size="large"
+            align="center"
+            onClick={handleOpen}
+          >
+            Pay with Touch ID
           </Button>
         </Box>
-      </Modal>
+      </Container>
+      <CheckOutModal open={open} />
     </div>
   )
 }

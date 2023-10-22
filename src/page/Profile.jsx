@@ -1,7 +1,6 @@
 import React from 'react'
 import Boramiyu from '../resources/artists/Boramiyu.jpg'
-import { Button } from '@mui/material'
-import Typography from '@mui/material/Typography'
+import { Typography, CssBaseline, Box, Container } from '@mui/material'
 import '../style/content.css'
 
 function Profile() {
@@ -9,15 +8,20 @@ function Profile() {
 
   return (
     <div className="content">
-      <Typography variant="h3" color="black" align="left">
-        Boramiyu
-      </Typography>
-      <img src={Boramiyu} className="imageSrc" alt="logo" />
-      <text>
-        'Boramiyu is a South Korean singer and YouTuber under Shofar
-        Entertainment. She debuted on November 21, 2018 with her first single I
-        Wanna Hate You'
-      </text>
+      <CssBaseline />
+      <Container maxWidth="sm">
+        <Box sx={{ bgcolor: '#cfe8fc', height: '100vh', width: '65vw' }}>
+          <Typography variant="h3" color="black" align="left">
+            Boramiyu (보라미유)
+          </Typography>
+          <img src={Boramiyu} className="imageSrc" alt="logo" />
+          <Typography variant="body1" align="left" gutterBottom>
+            'Boramiyu is a South Korean singer and YouTuber under Shofar
+            Entertainment. She debuted on November 21, 2018 with her first
+            single I Wanna Hate You'
+          </Typography>
+        </Box>
+      </Container>
     </div>
   )
 }

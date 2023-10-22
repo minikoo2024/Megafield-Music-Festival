@@ -12,7 +12,7 @@ let foodSubMenuList = [
 ]
 
 function importFoodSubMenuImage() {
-  foodSubMenuList.map((food, index) => {
+  foodSubMenuList.forEach((food, index) => {
     console.log('food list update source', index)
     food.image = require(`../resources/foodMenu/koreanFood${index + 1}.jpg`)
     console.log('food list update source', food.image)
