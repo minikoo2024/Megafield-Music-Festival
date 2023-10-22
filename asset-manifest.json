@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Megafield-Music-Festival/static/css/main.ef566c37.css",
-    "main.js": "/Megafield-Music-Festival/static/js/main.f7668426.js",
+    "main.css": "/Megafield-Music-Festival/static/css/main.dca37d31.css",
+    "main.js": "/Megafield-Music-Festival/static/js/main.0f603326.js",
     "static/js/787.6aea83ac.chunk.js": "/Megafield-Music-Festival/static/js/787.6aea83ac.chunk.js",
     "static/media/americanFood1.jpg": "/Megafield-Music-Festival/static/media/americanFood1.502774661a1b2e0e72e8.jpg",
     "static/media/koreanFood3.jpg": "/Megafield-Music-Festival/static/media/koreanFood3.3021948394702fd36e60.jpg",
@@ -11,12 +11,12 @@
     "static/media/koreanFood1.jpg": "/Megafield-Music-Festival/static/media/koreanFood1.5ddf1617d42d2620cfcd.jpg",
     "static/media/koreanFood2.jpg": "/Megafield-Music-Festival/static/media/koreanFood2.8cc2b4e3d17fb1c40e66.jpg",
     "index.html": "/Megafield-Music-Festival/index.html",
-    "main.ef566c37.css.map": "/Megafield-Music-Festival/static/css/main.ef566c37.css.map",
-    "main.f7668426.js.map": "/Megafield-Music-Festival/static/js/main.f7668426.js.map",
+    "main.dca37d31.css.map": "/Megafield-Music-Festival/static/css/main.dca37d31.css.map",
+    "main.0f603326.js.map": "/Megafield-Music-Festival/static/js/main.0f603326.js.map",
     "787.6aea83ac.chunk.js.map": "/Megafield-Music-Festival/static/js/787.6aea83ac.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ef566c37.css",
-    "static/js/main.f7668426.js"
+    "static/css/main.dca37d31.css",
+    "static/js/main.0f603326.js"
   ]
 }
